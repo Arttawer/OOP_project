@@ -8,6 +8,6 @@
         setlocale(LC_ALL, "russian");
         QApplication a(argc, argv);
         MainWindow w;
-        w.show();
+        w.showFullScreen();
         return a.exec();
     }

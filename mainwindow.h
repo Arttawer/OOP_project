@@ -49,6 +49,10 @@ private slots:
 
     void on_line_Caesar_editingFinished();
 
+    void on_btn_Exit_clicked();
+
+    void on_btn_Save_clicked();
+
 private:
     double entropyCalc(QString& str, CharInfo* chars, int n);
     QString caesarCalc(int offset);

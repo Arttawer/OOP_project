@@ -6,6 +6,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+
 }
 
 MainWindow::~MainWindow()
@@ -305,4 +307,27 @@ void MainWindow::on_caesarOffset_sliderMoved(int position)
 void MainWindow::on_line_Caesar_editingFinished()
 {
     ui->caesarOffset->setValue(ui->line_Caesar->text().toInt());
+}
+
+void MainWindow::on_btn_Exit_clicked()
+{
+    exit(0);
+}
+
+void MainWindow::on_btn_Save_clicked()
+{
+    QString XOR;
+    QString Caesar;
+    QString SF;
+    QString Vijener;
+    XOR = ui->text_XOR->toPlainText();
+    Caesar = ui->caesarBrowser->toPlainText();
+    SF = ui->text_ViewEncodeString->toPlainText();
+    Vijener = ui->text_Vijener->toPlainText();
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Открыть файл"),
+                                                      "/Текстовый файл",
+                                                      tr("Текст (*.txt)"));
+    std::ofstream f(fileName.toStdString(), std::ios::app);
+    f << "Origin: " << mainString.toStdString() <<"\nShannon-Fano: " << SF.toStdString() << "\nCaesar: " << Caesar.toStdString() << "\nVijener: " << Vijener.toStdString() << "\nXOR: " << XOR.toStdString() << "\n";
+    f.close();
 }
