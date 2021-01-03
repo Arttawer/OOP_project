@@ -331,3 +331,9 @@ void MainWindow::on_btn_Save_clicked()
     f << "Origin: " << mainString.toStdString() <<"\nShannon-Fano: " << SF.toStdString() << "\nCaesar: " << Caesar.toStdString() << "\nVijener: " << Vijener.toStdString() << "\nXOR: " << XOR.toStdString() << "\n";
     f.close();
 }
+
+
+void MainWindow::on_mainString_textChanged(const QString &arg1)
+{
+    mainString = arg1;
+}

@@ -53,6 +53,8 @@ private slots:
 
     void on_btn_Save_clicked();
 
+    void on_mainString_textChanged(const QString &arg1);
+
 private:
     double entropyCalc(QString& str, CharInfo* chars, int n);
     QString caesarCalc(int offset);
